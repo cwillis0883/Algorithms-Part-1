@@ -1,36 +1,11 @@
 package com.coursera.java.unionfind;
 
-public class UnionFind {
-	
-	private int id[];
-	
-	public UnionFind(int n)
-	{
-		id = new int[n];
-		for (int i = 0; i < n; i++)
-		{
-		 id[i] = i;
-		}
-	}
+abstract public class UnionFind {
 
-	public void union(int p, int q)
-	 {
-	 int pid = id[p];
-	 int qid = id[q];
-	 for (int i = 0; i < id.length; i++)
-	 if (id[i] == pid) id[i] = qid;
-	 }
+	abstract public void union(int p, int q);
 	 
-	public boolean connected(int p, int q)
-	{ 
-		return id[p] == id[q]; 
-	}
+	abstract public boolean connected(int p, int q);
 	
-	public void printConnected()
-	{
-		for (int i = 0; i < id.length; i++)
-		{
-			System.out.println(id[i]);
-		}
-	}
+	abstract public void printConnected();
+
 }

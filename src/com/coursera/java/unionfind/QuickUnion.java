@@ -1,23 +1,28 @@
 package com.coursera.java.unionfind;
 
-public class QuickFind extends UnionFind {
+public class QuickUnion extends UnionFind {
 	
-	public QuickFind(int n) {
+	public QuickUnion(int n) {
 		id = new int[n];
 		for (int i = 0; i < n; i++)
 		{
 		 id[i] = i;
 		}
-	}
+	 }
 
-	private int id[];
+	 private int id[];
+	
+	 private int root(int i)
+	 {
+		 while (i != id[i]) i = id[i];
+		 return i;
+	 }
 	 
 	public void union(int p, int q)
 	 {
-	 int pid = id[p];
-	 int qid = id[q];
-	 for (int i = 0; i < id.length; i++)
-	 if (id[i] == pid) id[i] = qid;
+		 int i = root(p);
+		 int j = root(q);
+		 id[i] = j;
 	 }
 	 
 	public boolean connected(int p, int q)
@@ -33,3 +38,4 @@ public class QuickFind extends UnionFind {
 		}
 	}
 }
+
